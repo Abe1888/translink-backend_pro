@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>TRANSLINK CMS | Language Config Editor</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/textures/ui/logo.png" type="image/png">
+
+    <!-- Mobile Theme Color -->
+    <meta name="theme-color" content="#c0202f">
+
+    <!-- Fonts matching the Translink master design system -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;900&family=Inter:wght@400;500;700&family=Noto+Sans+Ethiopic:wght@400;500;700;900&family=Outfit:wght@400;500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Bebas+Neue&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CMS Styling Sheet -->
+    <link rel="stylesheet" href="/src/cms/cms.css">
+</head>
+<body class="cms-theme-dark overflow-hidden">
+    <!-- Grid Overlay Background for rich tech aesthetic -->
+    <div class="cms-grid-overlay"></div>
+    <div class="cms-glow-effect left-glow"></div>
+    <div class="cms-glow-effect right-glow"></div>
+
+    <!-- Main Container -->
+    <div id="app">
+        <!-- Initial Skeleton Loading Interface -->
+        <div class="cms-loading-wrapper">
+            <div class="cms-loader-spinner">
+                <svg viewBox="0 0 50 50">
+                    <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="4"></circle>
+                </svg>
+            </div>
+            <div class="cms-loader-text">INITIALIZING TRANSLINK CMS ENGINE...</div>
+            <div class="cms-loader-progress">
+                <div class="cms-loader-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Entry Module -->
+    <script type="module" src="/src/cms/main.ts"></script>
+</body>
+</html>

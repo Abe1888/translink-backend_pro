@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: translink-backend-ioca
+    env: node
+    plan: starter
+
+    # Build: type-check → compile frontend (dist/) → compile server (dist-server/)
+    buildCommand: npm ci && npm run build
+
+    # Start: run the compiled server directly — no devDependencies needed at runtime
+    startCommand: node dist-server/index.js
+
+    # Render health check — hits the /api/health endpoint defined in api.ts
+    healthCheckPath: /api/health
+
+    envVars:
+      - key: NODE_ENV
+        value: production
+
+      - key: PORT
+        value: 10000
+        # Render internally routes to this port. Must match what the server listens on.
+
+      - key: GEMINI_API_KEY
+        sync: false
+        # ⚠ REQUIRED — set this secret in the Render dashboard → Environment → Add Secret.
+        # Obtain from https://aistudio.google.com/apikey
+
+      - key: ALLOWED_ORIGINS
+        # Comma-separated allowed origins for CORS and WebSocket origin validation.
+        # Set to * to allow all origins globally (not restricted to specific domains).
+        value: "*"
+        
