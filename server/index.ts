@@ -78,6 +78,7 @@ app.use('/api', (req, res, next) => {
 
 // Common middleware
 app.use(express.json());
+app.use(express.text({ type: 'text/plain' }));
 
 // API Routes
 app.use('/api', apiRouter);
@@ -305,6 +306,8 @@ wss.on('connection', async (clientWs, request) => {
     console.error('[Server] Error parsing connection request URL params:', e);
   }
 
+  // Reload voice config from disk so that any CMS updates are picked up for new sessions
+  loadVoiceConfig();
   const selectedVoice = getSelectedVoice(lang);
 
   let isAlive = true;
